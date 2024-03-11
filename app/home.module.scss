@@ -1,0 +1,70 @@
+
+
+.animateGreen{
+  content: "";
+  position: absolute;
+  top: 160px;
+  left: 0px;
+  width: 80px;
+  height: 1px;
+  overflow-x: hidden;
+  opacity: 0.80;
+  animation: verde infinite 2s;
+
+}
+.animateRed{
+  content: "";
+  position: absolute;
+  top: 160px;
+  left: 0px;
+  width: 80px;
+  height: 1px;
+  overflow-x: hidden;
+  opacity: 0.80;
+  animation: rojo infinite 5s;
+}
+
+@keyframes rojo {
+  0% {
+    left: 0px;
+    background: linear-gradient(to bottom, #ff14147a 1px, transparent 0px);
+  }
+  50% {
+    background: linear-gradient(to bottom, #ff14147a 1px, transparent 1px);
+    left:calc(100vw - 100px);
+    width: 80px;
+    height: 1px;
+  }
+  51% {
+  width: 0px;
+  height: 0px;
+  }
+  100% {
+  width: 0px;
+  height: 0px;
+  }
+}
+@keyframes verde {
+  0% {
+    top: 320px;
+    left:calc(100vw - 100px);
+    background: linear-gradient(to bottom, #01FF4E4D 1px, transparent 1px);
+  }
+  50% {
+    top: 320px;
+    background: linear-gradient(to bottom, #01FF4E4D 1px, transparent 1px);
+    left:0;
+    width: 80px;
+    height: 1px;
+  }
+  51% {
+  width: 0px;
+  height: 0px;
+  }
+  100% {
+  width: 0px;
+  height: 0px;
+  }
+}
+
+
