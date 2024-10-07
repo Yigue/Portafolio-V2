@@ -23,18 +23,9 @@ function AboutMe() {
         />
 
         <div className="shadowCustom w-[80vw] flex max-lg:mt-5   p-5 lg:my-auto  lg:w-3/6 mx-auto backdrop-blur-sm rounded-2xl">
-          
-            Soy un programador FullStack autodidacta y apasionado. Gracias a las
-            sólidas bases de conocimiento técnico que mi formación me ha
-            proporcionado y a mi deseo constante de aprender, he adquirido
-            amplios conocimientos en desarrollo web. Me especializo
-            principalmente en tecnologías como JavaScript, TypeScript, junto con
-            React.js, Next.js, Express.js y Node.js. Además, tengo experiencia
-            con otros lenguajes como PHP, MySQL, Python, FastAPI y CSS . Estoy
-            ansioso por aplicar mis habilidades y mi pasión por la programación
-            en un entorno desafiante donde pueda seguir aprendiendo y creciendo
-            como profesional.
-         
+        Soy un programador autodidacta y apasionado, con experiencia tanto en FrontEnd como en Backend. Gracias a mi sólida formación técnica y mi constante deseo de aprender, he adquirido amplios conocimientos en desarrollo web. Me especializo en tecnologías como C#, JavaScript y TypeScript, aplicando principios de SOLID y Clean Code para crear aplicaciones robustas y escalables.
+
+Además, tengo experiencia utilizando frameworks como .NET, ASP.NET, Express.js y Node.js para el Backend, y React.js y Next.js para el FrontEnd. También manejo otros lenguajes y tecnologías como PHP, MySQL, Python, FastAPI y CSS. Estoy ansioso por aplicar mis habilidades y mi pasión por la programación en un entorno desafiante, donde pueda seguir aprendiendo y creciendo como profesional.
         </div>
 
       </div>

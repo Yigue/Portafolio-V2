@@ -11,7 +11,7 @@ interface Props {
   className?: String;
   descript: String;
   href: URL;
-  tecnologias: [String?, String?, String?, String?, String?];
+  tecnologias: [String?, String?, String?, String?, String?, String?,String?];
 }
 function CardProyect({
   id,
@@ -41,7 +41,7 @@ function CardProyect({
             <h1>{descript}</h1>
             <br />
 
-            <div className=" lg:pl-[5%] flex  flex-row gap-[3%] lg:ml-[3%] font-mono text-sm  lg:max-xl:pb-5 dark:text-stone-500  text-stone-400   ">
+            <div className="  flex  flex-row gap-[3%] font-mono text-sm  lg:max-xl:pb-5 dark:text-stone-500  text-stone-400   ">
             {tecnologias.map((e, index) => {
               return <p key={index}>{e}</p>;
             })}
