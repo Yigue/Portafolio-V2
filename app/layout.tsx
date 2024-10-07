@@ -1,9 +1,10 @@
 import './globals.scss'
 import type { Metadata } from 'next'
-
+import { ThemeProvider } from 'next-themes'
 import { Inter } from 'next/font/google'
 
 import Navbar from './components/common/Navbar/Navbar'
+import { Footer } from './components/common'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -21,10 +22,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+      
+      <body className={inter.className +"font-body " } >
+        <ThemeProvider attribute='class'>
+          
+         {children}
+        </ThemeProvider>
+      </body>
 
-      <body className={inter.className +"font-body"} >
-      <Navbar/>
-        {children}</body>
     </html>
   )
 }

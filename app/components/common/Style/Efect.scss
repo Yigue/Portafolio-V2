@@ -1,0 +1,86 @@
+.letterSpacing{
+  // letter-spacing: -0.0rem;
+  padding-bottom: -10rem;
+}
+.shadowCustom{
+  box-shadow: 0px 0px 5px 0px #0000004d; 
+   //ffffff2a
+  .dark & {
+    box-shadow: 0px 0px 5px 0px #ffffff2a ;
+   // Cambia el color y opacidad en modo oscuro
+  }
+}
+.shadowCustomLight{
+
+    box-shadow: 0px 0px 5px 0px #ffffff2a ;
+
+  
+}
+.box  {
+    --border-angle: 0turn;
+    border:3px solid transparent;
+  
+  
+    --gradient-border: conic-gradient(
+      from calc(0deg + var(--border-angle)),
+      transparent,
+      transparent
+    );
+  
+    background: var(--main-bg) padding-box, var(--gradient-border) border-box,
+      var(--main-bg) border-box;
+    
+    background-size: 120% 150%; /* Asegura que el gradiente cubra el área completa */
+    background-position: center;
+  
+    animation: bg-spin 4s linear infinite;
+    animation-play-state: paused;
+  
+    @keyframes bg-spin {
+      to {
+        --border-angle: 1turn;
+      }
+    }
+  
+    &:hover {
+      animation-play-state: running;
+      // border:3px solid transparent;
+   
+      --main-bg: conic-gradient(
+        from calc(0deg + var(--border-angle)),
+        #f4f4f4,
+        #f4f4f4 90%,
+        #f4f4f4 100%
+      );
+      --gradient-border: conic-gradient(
+        from calc(1deg + var(--border-angle)),
+        #f4f4f4 0%,
+        #f4f4f4 90%,
+        red 100%
+      );
+      .dark & {
+        animation-play-state: running;
+        // border:3px solid transparent;
+     
+        --main-bg: conic-gradient(
+          from calc(0deg + var(--border-angle)),
+          #0A0A0A,
+          #0A0A0A 90%,
+          #0A0A0A 100%
+        );
+        --gradient-border: conic-gradient(
+          from calc(1deg + var(--border-angle)),
+          #0A0A0A 0%,
+          #0A0A0A 90%,
+          red 100%
+        );
+      }
+    }
+  }
+  
+  @property --border-angle {
+    syntax: "<angle>";
+    inherits: true;
+    initial-value: 0turn;
+  }
+  

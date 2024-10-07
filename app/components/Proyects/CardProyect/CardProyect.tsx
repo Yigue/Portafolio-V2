@@ -1,11 +1,14 @@
 import React from "react";
 import { CiShare1 } from "react-icons/ci";
 import Link from "next/link";
-
+import Image from "next/image";
+import "@app/components/common/Style/Efect.scss"
 interface Props {
   id: number;
-  image: String;
+  image?: String;
   title: String;
+  imageClassName:String;
+  className?: String;
   descript: String;
   href: URL;
   tecnologias: [String?, String?, String?, String?, String?];
@@ -17,36 +20,46 @@ function CardProyect({
   descript,
   href,
   tecnologias,
+  imageClassName,
+  className
 }: Props) {
   return (
-    <>
-      <div
+    
+      <section
         key={id}
-        className="lg:mx-[5%] flex flex-col lg:flex-row pl-[5%]   z-10 sm:pr-[5%] mt-[5%] pt-[3%] rounded-xl  dark:bg-stone-800 bg-gray-200 font-mono  "
+        className={'box rounded-2xl shadowCustom flex flex-col grow pl-[5%] z-10   pt-[3%] backdrop-blur-sm    ' + className}
+        
       >
-        <div className="  dark:text-white text-black absolute lg:static md:max-lg:mr-[10%]">
+        <div className="  dark:text-white text-black absolute   lg:static md:max-lg:mr-[10%]">
           <div className="grid grid-cols-4">
             <h1 className=" text-3xl col-span-3 ">{title}.</h1>
             <Link href={href}>
               <CiShare1 className="h-[100%] w-[33%]  md:h-[80%]  col-span-1 "></CiShare1>
             </Link>
           </div>
-          <div className="sm:mt-[3%] pr-[2rem] sm:pl-[3%] sm:pr-[10%]  rounded-3xl">
+          <div className="  mt-2  ">
             <h1>{descript}</h1>
             <br />
-          </div>
 
-          <div className="flex flex-row gap-[3%] ml-[3%] font-mono  lg:max-xl:pb-5 dark:text-stone-500  text-stone-400   ">
+            <div className=" lg:pl-[5%] flex  flex-row gap-[3%] lg:ml-[3%] font-mono text-sm  lg:max-xl:pb-5 dark:text-stone-500  text-stone-400   ">
             {tecnologias.map((e, index) => {
               return <p key={index}>{e}</p>;
             })}
           </div>
+          </div>
+
+
+        
         </div>
-        <div className=" flex items-center  justify-center top-0 relative  opacity-20 lg:static lg:opacity-100 ">
-          <img className=" max-w-xs  max-h-xs   " src={`/${image}`} alt="" />
+
+        <div className=" flex items-center  justify-center top-0 relative max-lg:overflow-hidden opacity-20 lg:static lg:opacity-100 ">
+          {
+            image ? <img className={`${imageClassName}`}  src={`/${image}`} alt=""  /> :  null
+          }
+    
         </div>
-      </div>
-    </>
+      </section>
+   
   );
 }
 

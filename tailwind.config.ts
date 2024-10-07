@@ -1,5 +1,7 @@
 import type { Config } from 'tailwindcss'
-
+const {
+  default: flattenColorPalette,
+} = require("tailwindcss/lib/util/flattenColorPalette");
 const config: Config = {
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -11,36 +13,19 @@ const config: Config = {
       'body': [ "Satoshi", "sans-serif"],
      
     },
-    extend: { 
-        animation: {
-          'borderWidth ': 'borderWidths 3s infinite alternate',
-          'backgroudShine ':' backgroundShine 2s linear infinite',
-        },
-        keyframes: {
-          borderWidths: {
-            '0%':{width:"10px",opacity: "0"},
-            '100%': {width:"200px",opacity: "1" },
-          },
-          backgroundShine : {
-            '0%':{ "background-position":"0 0"},
-            '100%': { "background-position":"-200% 0" },
-          },
-        },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-      },
-      colors: {
-        transparent: "transparent",
-        current: "currentColor",
-        back:{
-          100:"#3333",
-          200:"#3344",
-        } ,
-      },
-    },
+  
   },
-  plugins: [],
+  darkMode: 'class',
+  plugins: [addVariablesForColors,],
 }
 export default config
+function addVariablesForColors({ addBase, theme }: any) {
+  let allColors = flattenColorPalette(theme("colors"));
+  let newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+ 
+  addBase({
+    ":root": newVars,
+  });
+}

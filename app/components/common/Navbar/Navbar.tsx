@@ -1,14 +1,14 @@
 "use client"
 import React from "react";
-
 import Image from "next/image";
 import { useState, useCallback, useEffect } from "react";
-
 import { HiOutlineSun, HiMoon, HiSun } from "react-icons/hi";
 import Link from "next/link";
+import { useTheme } from 'next-themes'
+
+
 const Navbar = () => {
-
-
+  const{theme,setTheme }=useTheme();
   const [isOpen, setIsOpen] = useState(false);
 
   const escFunction = useCallback(
@@ -32,23 +32,24 @@ const Navbar = () => {
   }, [escFunction]);
 
   return (
-    <section className="fixed top-0 flex z-20 flex-row w-[100%]
+    <section className="fixed top-0 flex z-20 flex-row w-[100%] 
       shadow-gray-200 dark:shadow-[rgba(59,43,41,.16)]- 
-       dark:selection:text-stone-800 dark:text-white text-black dark:bg-transparent backdrop-blur-sm lg:px-[27%]">
+      dark:bg-[#111111de]  bg-[#f5f5f5ed] text-black dark:text-white backdrop-blur-xl
+       lg:px-auto md:items-center md:justify-center ">
       <div className="flex img cursor-pointer px-1 py-1">
         <Image
-          src={`/${false ? "Rw.png" : "r.png"}`}
+          src={`/${theme === "dark" ? "r.png" : "rWhite.png"}`}
           alt="r"
           width={50}
           height={50}
         />
       </div>
 
-      <div className="border absolute overflow-hidden mt-3 py-[14.5px] border-transparent  left-12 ml-3"></div>
+
 
       <div className="navButtons hidden md:flex ml-5">
         <ul className="flex  flex-row text-[16px] font-mono space-x-4 content-center items-center ">
-          <li className="px-2 py-2 cursor-pointer duration-300 ease-in-out transition hover:bg-stone-hover-bg text-light-text-white font-mono hover:text-cyan-text rounded-lg">
+          <li className="px-2 py-2 cursor-pointer duration-300 ease-in-out transition  font-mono hover:text-cyan-text rounded-lg">
             <Link href="/#SobreMi"> Sobre Mi →</Link>
           </li>
           <li className="px-2 py-2 cursor-pointer duration-300 ease-in-out transition hover:bg-stone-hover-bg text-light-text-stone font-mono hover:text-cyan-text rounded-lg">
@@ -60,11 +61,15 @@ const Navbar = () => {
           </li>
           <li className="px-2 py-2 cursor-pointer duration-300 ease-in-out transition hover:bg-stone-hover-bg text-light-text-stone font-mono hover:text-cyan-text rounded-lg">
             <Link href="/#Contactame">Contactame → </Link>
+            
           </li>
+       
+          
         </ul>
+        
       </div>
-
-      <div className="navIcons pl-5 max-md:absolute max-md:right-0 space-x-7 mt-2 mr-3">
+ 
+     <div className="navIcons  pl-5 max-md:absolute max-md:right-0 max-lg:space-x-7 max-lg:mt-2 max-lg:mr-3">
         {/* <div className="mborder  border transform py-[13px] absolute z-[-1] mt-[6px] border-black dark:hidden"></div> */}
         <div
           className={`ICONOMENU hammoblie flex 
@@ -93,46 +98,47 @@ const Navbar = () => {
 
         <div
           className={` MENUU md:hidden
-            absolute z-20  l-0 top-[50px] overflow-x-hidden left-0 h-[100rem] dark:bg-stone-900 bg-white  ${
+            absolute  l-0 top-[50px] z-50 overflow-x-hidden left-0 h-[100rem]   ${
               !isOpen
                 ? "ease-in-out"
-                : "-translate-x-[260px] duration-[200ms]  ease-in w-screen drop-shadow-sm/2 dark:bg-stone-900 bg-white "
+                : "-translate-x-[260px] duration-[200ms]   ease-in w-screen dark:bg-[#111111de]  bg-[#f5f5f5ed] backdrop-blur-xl  "
             }
             ${
               isOpen
-                ? "-translate-x-[260px] duration-200 ease-in-out"
-                : "-translate-x-0 w-0 ease-in-out transition-all   duration-500 left-0 dark:bg-stone-900 bg-white "
+                ? "-translate-x-[260px] duration-200 ease-in-out "
+                : "-translate-x-0 w-0 ease-in-out transition-all   duration-500 left-0  backdrop-blur-sm "
             }
             `}
         >
-          <div className="container flex  flex-col">
-            <div className="mt-6 flex flex-col  cursor-pointer absolute left-[120px]">
+          <div className="container flex  flex-col  ">
+            <div className="my-6  flex flex-col  cursor-pointer absolute left-[120px]">
               <Image
-                src={`/${false ? "Rw.png" : "r.png"}`}
+                src={`/${theme === "dark" ? "r.png" : "rWhite.png"}`}
                 alt="r"
                 width={70}
                 height={100}
               />
             </div>
 
-            <div className="textIcons mt-2 space-y-4 left-[90px] font-medium text-[18px] top-[90px] absolute">
-              <div className=" dark:hover:bg-white dark:hover:text-black flex duration-300 ease-in-out transition justify-center text-center  flex-col px-1 py-1 hover:text-cyan-text dark:text-white dark:bg-stone-900  hover:text-white hover:bg-stone-900 rounded-xl hover:bg-stone-hover-bg">
+            <div className="textIcons mt-6 space-y-4 left-[90px] font-medium text-[18px] top-[90px] absolute">
+              <div className=" flex duration-300 ease-in-out transition justify-center text-center  flex-col px-1 py-1 hover:text-cyan-text   hover:text-white hover:bg-stone-900 rounded-xl hover:bg-stone-hover-bg">
                 <Link href="/#SobreMi">Sobre Mi</Link>
               </div>
-              <span className="dark:hover:bg-white dark:hover:text-black flex duration-300 ease-in-out transition justify-center text-center  flex-col px-1 py-1 hover:text-cyan-text dark:text-white dark:bg-stone-900 hover:text-white hover:bg-stone-900  rounded-xl hover:bg-stone-hover-bg">
+              <span className="flex duration-300 ease-in-out transition justify-center text-center  flex-col px-1 py-1 hover:text-cyan-text  hover:text-white hover:bg-stone-900  rounded-xl hover:bg-stone-hover-bg">
                 <Link href="/#MisHabilidades">Mis Habilidades</Link>
               </span>
-              <span className=" dark:hover:bg-white dark:hover:text-black flex duration-300 ease-in-out transition justify-center text-center  flex-col px-1 py-1 hover:text-cyan-text dark:text-white dark:bg-stone-900 hover:text-white hover:bg-stone-900 rounded-xl hover:bg-stone-hover-bg">
+              <span className=" flex duration-300 ease-in-out transition justify-center text-center  flex-col px-1 py-1 hover:text-cyan-text  hover:text-white hover:bg-stone-900 rounded-xl hover:bg-stone-hover-bg">
                 <Link href="/#Proyectos">Proyectos </Link>
               </span>
 
-              <span className=" dark:hover:bg-white dark:hover:text-black flex duration-300 ease-in-out transition  justify-center text-center flex-col px-1 py-1 hover:text-cyan-text dark:text-white dark:bg-stone-900 hover:text-white hover:bg-stone-900 rounded-xl hover:bg-stone-hover-bg">
+              <span className=" flex duration-300 ease-in-out transition  justify-center text-center flex-col px-1 py-1 hover:text-cyan-text  hover:text-white hover:bg-stone-900 rounded-xl hover:bg-stone-hover-bg">
                 <Link href="/#Contactame">Contactame </Link>
               </span>
               <button
                 className="flex pl-14 "
                 onClick={() => {
-                  // changeMode();
+                  theme === 'light' ? setTheme('dark') : setTheme('light');
+              
                 }}
               >
                 <HiMoon className=" hidden  dark:inline	 dark:hover:bg-white dark:hover:text-black text-3xl rounded-full" />
@@ -141,19 +147,22 @@ const Navbar = () => {
             </div>
 
             <div className="sBorder absolute border left-[52px] flex justify-center border-stone-300/90 top-[375px] px-[100px]"></div>
+           
           </div>
         </div>
 
         <button
           className="hidden md:flex pr-[5vh] pt-1"
           onClick={() => {
-            // changeMode();
+            theme === 'light' ? setTheme('dark') : setTheme('light'); 
           }}
         >
+         
           <HiMoon className=" hidden  dark:inline	 dark:hover:bg-white dark:hover:text-black text-3xl rounded-full" />
           <HiSun className="incline  dark:hidden   hover:bg-stone-800 hover:text-white text-3xl rounded-full " />
         </button>
       </div>
+
     </section>
   );
 };
