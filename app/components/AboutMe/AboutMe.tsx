@@ -16,7 +16,7 @@ function AboutMe() {
       <div className="flex  flex-col lg:flex-row max-lg:py-5">
         <Image
           src={"/perfil.jpg"}
-          className=" mx-auto my-10 gap-4 max-lg:h-[20rem]  max-lg:w-[20rem]  rounded-full z-101"
+          className=" mx-auto my-10 gap-4 max-lg:h-[20rem]  max-lg:w-[20rem]  rounded-full z-10"
           alt="foto de perfil"
           height={384}
           width={384}
