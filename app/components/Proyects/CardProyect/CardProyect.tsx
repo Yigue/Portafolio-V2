@@ -27,7 +27,7 @@ function CardProyect({
     
       <section
         key={id}
-        className={'box rounded-2xl shadowCustom flex flex-col grow pl-[5%] z-10   pt-[3%] backdrop-blur-sm    ' + className}
+        className={'  box rounded-2xl shadowCustom flex flex-col grow pl-[5%] z-10   pt-[3%] backdrop-blur-sm    ' + className}
         
       >
         <div className="  dark:text-white text-black absolute   lg:static md:max-lg:mr-[10%]">

@@ -24,11 +24,12 @@ export default function RootLayout({
       <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
       
       <body className={inter.className +"font-body " } >
-        <ThemeProvider attribute='class'>
+        <ThemeProvider attribute='class' defaultTheme='dark'  >
           
          {children}
         </ThemeProvider>
       </body>
+
 
     </html>
   )
